@@ -4,7 +4,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.*;
+import java.io.*;
+import java.lang.*;
 import java.util.*;
 
 public class StatParser
@@ -128,6 +129,23 @@ public class StatParser
 	    }
     }
 
+    public void writeToOutput(){
+        try {
+            // Assume default encoding.
+            FileWriter fileWriter = new FileWriter("output.dat");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (int i = 0; i < parsedList.size(); i++) {
+                bufferedWriter.write(parsedList.get(i).tableNum + "\t" + parsedList.get(i).tableURL);
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
+        }
+        catch(IOException ex) {
+            System.out.println(
+                    "Error writing to output file");
+        }
+    }
+
     public void printElements(){
 
         // Print all elements of the final arrayList in the directed format.
@@ -148,6 +166,7 @@ public class StatParser
         System.out.println("Searching for Table 48.3");
         StatParser l = new StatParser("48.3");
         l.printElements();
+        l.writeToOutput();
     }
 
 }

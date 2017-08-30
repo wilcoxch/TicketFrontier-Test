@@ -1,0 +1,7 @@
+WINDOWS 7/ JAVA JDK 1.6.0_25 / jsoup-1.10.3.jar
+
+TEST2 utilizes Jsoup, a library that I've included in the TEST2/TEST2 folder(jsoup-1.10.3.jar)
+StatParser.java should be found in TEST2/src which is the main program.
+Running should be as simple as including that library in the classpath.
+
+TEST3 should be as simple as running 'javac FileParser.java' from the command line and then using 'java FileParser [testfile]' to run.
